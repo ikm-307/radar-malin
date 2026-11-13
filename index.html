@@ -1,83 +1,13 @@
-<!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RADAR MALIN compare le coût par page des cartouches et toners HP.">
-<title>RADAR MALIN — Comparateur HP</title>
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RADAR MALIN — HP 305</title>
 <style>
-:root{--green:#13794f;--dark:#142820;--muted:#65766d;--bg:#f2f6f3;--line:#dce8e0;--pale:#edf7f1}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--dark);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;line-height:1.55}
-header{background:#fff;border-bottom:1px solid var(--line);padding:25px 18px}.wrap{max-width:900px;margin:auto}
-.brand{font-weight:900;letter-spacing:.04em;font-size:clamp(28px,6vw,42px);color:var(--green);margin:0}.tag{color:var(--muted);margin:4px 0 0}
-main{padding:22px 14px 45px}.card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:22px;margin:0 auto 18px;box-shadow:0 5px 20px #14282008}
-h2{font-size:clamp(22px,5vw,29px);margin:0 0 8px}.intro{color:var(--muted);margin:0 0 18px}
-label{display:block;font-weight:650;margin:0 0 6px}input,select{width:100%;font:inherit;padding:13px 14px;border:1px solid #cbd9d0;border-radius:13px;background:white;color:var(--dark);min-width:0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.full{grid-column:1/-1}
-button{border:0;border-radius:13px;padding:14px 18px;font:inherit;font-weight:750;cursor:pointer}.primary{background:var(--green);color:white;width:100%;margin-top:15px}.secondary{background:var(--pale);color:var(--green);margin-top:12px}
-.result{background:var(--pale);border:1px solid #cfe8d9;border-radius:17px;padding:17px;margin-top:16px}.muted{color:var(--muted)}.note{font-size:13px;color:var(--muted);margin:12px 0 0}
-.rowhead,.item{display:grid;grid-template-columns:1.25fr .75fr .8fr .8fr;gap:9px;align-items:center}.rowhead{font-size:12px;color:var(--muted);font-weight:750;padding:0 8px 8px}.item{padding:12px 8px;border-top:1px solid var(--line)}.item input{padding:10px 9px}.cost{font-weight:800;color:var(--green);overflow-wrap:anywhere}.best{background:#f0faf4}.pill{display:inline-block;background:#e5f4eb;color:var(--green);border-radius:20px;padding:3px 9px;font-size:12px;font-weight:800}
-footer{text-align:center;color:var(--muted);font-size:13px;padding:10px 20px 30px}
-@media(max-width:620px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.rowhead{display:none}.item{grid-template-columns:1fr 1fr}.item strong,.cost{grid-column:1/-1}.card{padding:18px}}
-</style>
-</head>
-<body>
-<header><div class="wrap"><p class="brand">RADAR MALIN</p><p class="tag">Le bon choix, c’est le coût par page — pas seulement le prix affiché.</p></div></header>
-<main class="wrap">
-<section class="card">
-<h2>Comparateur de cartouches HP</h2>
-<p class="intro">Compare les cartouches et toners HP à partir des informations affichées par le vendeur ou le fabricant.</p>
-<div class="grid">
-<div class="full"><label for="printer">Modèle de ton imprimante HP (facultatif)</label><input id="printer" placeholder="Ex. : modèle indiqué sur ton imprimante"></div>
-<div><label for="ref">Référence de la cartouche</label><input id="ref" placeholder="Ex. : référence exacte"></div>
-<div><label for="type">Type de consommable</label><select id="type"><option>Cartouche jet d’encre</option><option>Toner laser</option></select></div>
-<div><label for="price">Prix constaté (€)</label><input id="price" type="number" min="0" step="0.01" placeholder="Ex. : 29,90"></div>
-<div><label for="pages">Rendement annoncé (pages)</label><input id="pages" type="number" min="1" step="1" placeholder="Ex. : 500"></div>
-</div>
-<button class="primary" id="add">Ajouter cette offre au comparateur</button>
-<p class="note">Saisis les données d’une offre que tu as réellement trouvée. Le site ne récupère pas encore automatiquement les prix.</p>
-</section>
-
-<section class="card">
-<h2>Mes offres comparées</h2>
-<p class="intro">Le coût par page est calculé avec le prix et le rendement que tu as saisis.</p>
-<div class="rowhead"><span>Référence / imprimante</span><span>Prix</span><span>Pages</span><span>Coût/page</span></div>
-<div id="offers"><p class="muted" id="empty">Aucune offre ajoutée pour le moment. Commence par saisir une offre ci-dessus.</p></div>
-<button class="secondary" id="compare">Actualiser le classement</button>
-<div class="result" id="winner" aria-live="polite">Le classement apparaîtra ici dès que tu auras ajouté au moins une offre.</div>
-</section>
-
-<section class="card">
-<h2>Les 3 vérifications avant d’acheter</h2>
-<ul>
-<li>Vérifie la compatibilité avec le modèle exact de ton imprimante HP.</li>
-<li>Compare le rendement annoncé en pages et le coût par page.</li>
-<li>Ajoute les frais de livraison et vérifie le vendeur avant de comparer le prix final.</li>
-</ul>
-<p class="note">Transparence : RADAR MALIN est indépendant. Les résultats dépendent des données saisies par l’utilisateur. Les prix et la compatibilité doivent être vérifiés auprès du vendeur ou du fabricant. Aucun partenariat commercial ni lien d’affiliation n’est actuellement intégré.</p>
-</section>
-</main>
-<footer>RADAR MALIN · Comparateur indépendant · HP est une marque de son propriétaire ; RADAR MALIN n’est pas affilié à HP.</footer>
+:root{--g:#13794f;--d:#142820;--m:#64756c;--b:#f2f6f3;--l:#dce8e0;--p:#edf7f1}*{box-sizing:border-box}body{margin:0;background:var(--b);color:var(--d);font:16px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}header{background:white;padding:22px 18px;border-bottom:1px solid var(--l)}.wrap{max-width:850px;margin:auto}.brand{font-size:34px;font-weight:900;color:var(--g);margin:0}.tag,.muted,.note{color:var(--m)}main{padding:20px 14px}.card{background:white;border:1px solid var(--l);border-radius:20px;padding:20px;margin-bottom:18px}h2{margin:0 0 8px;font-size:25px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}label{display:block;font-weight:650;margin-bottom:5px}input,select{width:100%;padding:12px;border:1px solid #cbd9d0;border-radius:12px;font:inherit}.full{grid-column:1/-1}button{width:100%;margin-top:14px;padding:13px;border:0;border-radius:12px;background:var(--g);color:white;font:inherit;font-weight:750}.item{display:grid;grid-template-columns:1.4fr .8fr .8fr .8fr;gap:8px;padding:12px 0;border-top:1px solid var(--l);align-items:center}.item small{display:block;color:var(--m)}.cost{font-weight:800;color:var(--g)}.winner{margin-top:15px;padding:15px;border-radius:14px;background:var(--p);border:1px solid #cfe8d9}.note{font-size:13px}@media(max-width:600px){.grid{grid-template-columns:1fr}.full{grid-column:auto}.item{grid-template-columns:1fr 1fr}.item strong,.item .cost{grid-column:1/-1}}
+</style></head><body><header><div class="wrap"><p class="brand">RADAR MALIN</p><p class="tag">Comparateur indépendant HP 305 et HP 305XL</p></div></header><main class="wrap">
+<section class="card"><h2>Ajouter une cartouche</h2><p class="muted">Compare les originales et les compatibles. Le rendement d’une cartouche compatible doit être relevé sur sa propre fiche produit.</p>
+<div class="grid"><div><label>Famille</label><select id="family"><option>HP 305</option><option>HP 305XL</option></select></div><div><label>Type</label><select id="kind"><option>Noire</option><option>Trois couleurs</option><option>Pack noir + couleur</option></select></div><div><label>Origine</label><select id="status"><option>HP originale</option><option>Compatible</option><option>Reconditionnée</option></select></div><div><label>Référence / marque</label><input id="ref" placeholder="Ex. 3YM61AE"></div><div><label>Prix (€)</label><input id="price" type="number" min="0" step=".01" placeholder="Prix constaté"></div><div><label>Rendement (pages)</label><input id="pages" type="number" min="1" placeholder="Pages annoncées"></div><div class="full"><label>Vendeur (facultatif)</label><input id="seller" placeholder="Nom du vendeur"></div></div><button id="add">Ajouter cette cartouche</button><p class="note">N'ajoute que des informations relevées sur une offre réelle. Vérifie la compatibilité avec le modèle exact de l'imprimante et les frais de livraison.</p></section>
+<section class="card"><h2>Comparaison des coûts par page</h2><div class="item muted"><b>Cartouche</b><b>Prix</b><b>Pages</b><b>Coût/page</b></div><div id="list"><p class="muted">Aucune offre ajoutée.</p></div><div class="winner" id="result">Le classement apparaîtra ici dès qu'une offre sera ajoutée.</div><p class="note">Le classement compare uniquement les données saisies. Compare les packs à composition identique et ne confonds pas les rendements noir et couleur.</p></section>
+<section class="card"><h2>Repères HP officiels</h2><ul><li>HP 305 noire : 3YM61AE — environ 120 pages.</li><li>HP 305 trois couleurs : 3YM60AE — environ 100 pages.</li><li>HP 305XL noire : 3YM62AE — vérifie le rendement de la fiche HP locale.</li><li>HP 305XL trois couleurs : 3YM63AE — vérifie le rendement de la fiche HP locale.</li></ul><p class="note">Les rendements sont des estimations de laboratoire ; l'usage réel varie. Les rendements des compatibles sont propres à chaque fabricant. HP 305/305XL ne convient qu'à certains modèles d'imprimantes et les séries ne sont pas interchangeables.</p></section></main>
 <script>
-const money=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);
-const offers=[];
-function render(){
- const host=document.getElementById('offers');
- if(!offers.length){host.innerHTML='<p class="muted">Aucune offre ajoutée pour le moment. Commence par saisir une offre ci-dessus.</p>';document.getElementById('winner').textContent='Le classement apparaîtra ici dès que tu auras ajouté au moins une offre.';return;}
- const sorted=[...offers].sort((a,b)=>a.cost-b.cost);
- host.innerHTML=sorted.map((o,i)=>`<div class="item ${i===0?'best':''}"><strong>${escapeHtml(o.ref)}${o.printer?' · '+escapeHtml(o.printer):''}<br><span class="muted">${escapeHtml(o.type)}</span></strong><span>${money(o.price)}</span><span>${o.pages.toLocaleString('fr-FR')}</span><span class="cost">${o.cost.toFixed(4).replace('.',',')} €</span></div>`).join('');
- const best=sorted[0];
- document.getElementById('winner').innerHTML='<strong>Coût par page le plus bas parmi tes offres :</strong><br>'+escapeHtml(best.ref)+' — '+best.cost.toFixed(4).replace('.',',')+' € / page <span class="pill">Meilleur coût saisi</span><p class="note">Ce classement ne vérifie pas automatiquement la compatibilité, la disponibilité, le prix actuel ni les frais de livraison.</p>';
-}
-function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-document.getElementById('add').addEventListener('click',()=>{
- const ref=document.getElementById('ref').value.trim(),price=Number(document.getElementById('price').value),pages=Number(document.getElementById('pages').value);
- if(!ref||document.getElementById('price').value===''||!(price>=0)||!(pages>0)){alert('Renseigne la référence, un prix valide et un rendement supérieur à zéro.');return;}
- offers.push({ref,price,pages,cost:price/pages,type:document.getElementById('type').value,printer:document.getElementById('printer').value.trim()});
- document.getElementById('ref').value='';document.getElementById('price').value='';document.getElementById('pages').value='';
- render();
-});
-document.getElementById('compare').addEventListener('click',render);
-</script>
-</body>
-</html>
+const offers=[];const euro=n=>new Intl.NumberFormat('fr-FR',{style:'currency',currency:'EUR'}).format(n);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function render(){let list=document.getElementById('list'),res=document.getElementById('result');if(!offers.length){list.innerHTML='<p class="muted">Aucune offre ajoutée.</p>';res.textContent="Le classement apparaîtra ici dès qu'une offre sera ajoutée.";return;}let a=[...offers].sort((x,y)=>x.cost-y.cost);list.innerHTML=a.map(o=>`<div class="item"><strong>${esc(o.family)} ${esc(o.kind)}<small>${esc(o.status)} · ${esc(o.ref)}${o.seller?' · '+esc(o.seller):''}</small></strong><span>${euro(o.price)}</span><span>${o.pages}</span><span class="cost">${o.cost.toFixed(4).replace('.',',')} €</span></div>`).join('');let b=a[0];res.innerHTML='<b>Coût par page le plus bas parmi les offres saisies :</b><br>'+esc(b.family+' '+b.kind+' — '+b.status)+' : '+b.cost.toFixed(4).replace('.',',')+' € / page';}
+document.getElementById('add').onclick=()=>{let pr=document.getElementById('price').value,pg=document.getElementById('pages').value,ref=document.getElementById('ref').value.trim(),price=Number(pr),pages=Number(pg);if(!ref||pr===''||pg===''||!(price>=0)||!(pages>0)){alert('Indique une référence, un prix et un rendement en pages valides.');return;}offers.push({family:document.getElementById('family').value,kind:document.getElementById('kind').value,status:document.getElementById('status').value,ref,price,pages,cost:price/pages,seller:document.getElementById('seller').value.trim()});['price','pages','ref','seller'].forEach(id=>document.getElementById(id).value='');render();};
+</script></body></html>
